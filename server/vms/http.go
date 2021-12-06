@@ -2,7 +2,7 @@ package vms
 
 import (
 	"encoding/json"
-	"github.com/BusyPeople/APZ-3/server/tools"
+	"github.com/BusyPeopleAPZ/APZ-3/server/tools"
 	"log"
 	"net/http"
 )
