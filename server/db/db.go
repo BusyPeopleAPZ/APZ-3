@@ -17,7 +17,7 @@ type Connection struct {
 
 func (c *Connection) ConnectionUrl() string {
 	dbUrl := &url.URL{
-		Scheme: "public",
+		Scheme: "postgres",
 		Host:   c.Host,
 		User:   url.UserPassword(c.User, c.Password),
 		Path:   c.DbName,
@@ -26,7 +26,7 @@ func (c *Connection) ConnectionUrl() string {
 	if c.DisableSSL {
 		query.Set("sslmode", "disable")
 	}
-	query.Set("schema", c.Schema)
+	query.Set("search_path", c.Schema)
 
 	dbUrl.RawQuery = query.Encode()
 	log.Println(dbUrl.String())
